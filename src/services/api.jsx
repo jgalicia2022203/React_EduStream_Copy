@@ -75,3 +75,12 @@ export const createStream = async (streamData) => {
     throw error.response.data;
   }
 };
+
+export const getCategories = async () => {
+  try {
+    const response = await API.get("/categories");
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};

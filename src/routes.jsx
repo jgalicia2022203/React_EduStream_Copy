@@ -27,18 +27,18 @@ const AppRoutes = () => {
 
   return (
     <Router>
+      <Navbar
+        isAuthenticated={isAuthenticated}
+        onLogout={handleLogout}
+        onLogin={handleLogin}
+      />
       <div className="flex w-full h-full">
         {isAuthenticated && <Sidebar />}
         <div className="w-full h-full">
-          <Navbar
-            isAuthenticated={isAuthenticated}
-            onLogout={handleLogout}
-            onLogin={handleLogin}
-          />
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/categories" element={<CategoriesPage />} />
             <Route element={<PrivateRoute />}>
-              <Route path="/categories" element={<CategoriesPage />} />
               <Route path="/category/:id" element={<CategoryPage />} />
               <Route path="/stream/:id" element={<StreamPage />} />
               <Route path="/channel/:id" element={<ChannelPage />} />

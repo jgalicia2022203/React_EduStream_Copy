@@ -26,7 +26,7 @@ const Sidebar = () => {
   }
 
   return (
-    <aside className="w-64 p-4 bg-gray-100">
+    <aside className="w-64 h-full p-4 bg-gray-100">
       <h2 className="mb-4 text-xl font-bold">Followed Channels</h2>
       <ul>
         {channels.map((channel) => (
