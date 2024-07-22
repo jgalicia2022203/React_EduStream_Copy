@@ -3,7 +3,7 @@ import AppRoutes from "./routes";
 
 const App = () => {
   return (
-    <div>
+    <div className="flex w-full h-full">
       <AppRoutes />
     </div>
   );

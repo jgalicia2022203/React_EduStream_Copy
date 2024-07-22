@@ -1,5 +1,5 @@
 import React from "react";
-import useLoginForm from "../shared/hooks/useLoginForm";
+import useLoginForm from "../hooks/useLoginForm";
 
 const LoginForm = ({ onClose }) => {
   const { register, handleSubmit, errors, onSubmit } = useLoginForm(onClose);
@@ -7,54 +7,40 @@ const LoginForm = ({ onClose }) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="p-8 bg-white rounded-lg shadow-lg"
+      className="p-8 bg-[#ACBCCC] rounded-lg shadow-lg"
     >
-      <h2 className="mb-6 text-2xl font-bold text-center text-blue-600">
+      <h2 className="mb-6 text-3xl font-bold text-center text-[#000000]">
         <span className="inline-block mb-2">
-          <svg
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/686/686051.png"
+            alt="Graduation Cap"
             className="w-8 h-8 mx-auto"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"
-            ></path>
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M16 14l-4-4-4 4"
-            ></path>
-          </svg>
+          />
         </span>
         Log In on EduStream
       </h2>
       <div className="mb-4">
-        <label className="block mb-2 text-sm font-bold text-gray-700">
+        <label className="block mb-2 text-sm font-bold text-[#000000]">
           Username
         </label>
         <input
           name="username"
           {...register("username")}
-          className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
+          className="w-full px-3 py-2 text-[#000000] border-2 border-gray-400 rounded-md focus:outline-none focus:border-4 focus:border-[#395BBF] bg-transparent"
         />
         {errors.username && (
           <p className="mt-1 text-xs text-red-500">{errors.username.message}</p>
         )}
       </div>
       <div className="mb-6">
-        <label className="block mb-2 text-sm font-bold text-gray-700">
+        <label className="block mb-2 text-sm font-bold text-[#000000]">
           Password
         </label>
         <input
           type="password"
           name="password"
           {...register("password")}
-          className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
+          className="w-full px-3 py-2 text-[#000000] border-2 border-gray-400 rounded-md focus:outline-none focus:border-4 focus:border-[#395BBF] bg-transparent"
         />
         {errors.password && (
           <p className="mt-1 text-xs text-red-500">{errors.password.message}</p>
@@ -63,7 +49,7 @@ const LoginForm = ({ onClose }) => {
       <div className="flex items-center justify-between">
         <button
           type="submit"
-          className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none"
+          className="w-full px-4 py-2 font-bold text-white bg-[#395BBF] rounded-md hover:bg-blue-700 focus:outline-none"
         >
           Log In
         </button>

@@ -39,3 +39,39 @@ export const register = async (userData) => {
     throw error.response.data;
   }
 };
+
+export const getFollowedChannels = async (userId) => {
+  try {
+    const response = await API.get(`/users/followed-channels/${userId}`);
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
+
+export const followChannel = async (channelId) => {
+  try {
+    const response = await API.post("/channels/follow", { channelId });
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
+
+export const unfollowChannel = async (channelId) => {
+  try {
+    const response = await API.post("/channels/unfollow", { channelId });
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
+
+export const createStream = async (streamData) => {
+  try {
+    const response = await API.post("/streams", streamData);
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
