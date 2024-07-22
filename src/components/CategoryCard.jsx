@@ -1,8 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CategoryCard = ({ category }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/category/${category._id}`);
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center w-48 h-64 p-4 border rounded">
+    <div
+      onClick={handleClick}
+      className="flex flex-col items-center justify-center w-48 h-64 p-4 border rounded cursor-pointer hover:shadow-lg"
+    >
       <img
         src={category.image}
         alt={category.name}

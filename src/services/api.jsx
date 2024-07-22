@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:8080/EduStream/v1",
+  baseURL: "https://node-edustream-copy.onrender.com/EduStream/v1",
   headers: {
     "Content-Type": "application/json",
   },
@@ -79,6 +79,33 @@ export const createStream = async (streamData) => {
 export const getCategories = async () => {
   try {
     const response = await API.get("/categories");
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
+
+export const getCategoryById = async (id) => {
+  try {
+    const response = await API.get(`/categories/${id}`);
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
+
+export const getLiveStreams = async (categoryId) => {
+  try {
+    const response = await API.get(`/categories/${categoryId}/live-streams`);
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
+
+export const getCategoryVideos = async (categoryId) => {
+  try {
+    const response = await API.get(`/categories/${categoryId}/videos`);
     return response.data;
   } catch (error) {
     throw error.response.data;
