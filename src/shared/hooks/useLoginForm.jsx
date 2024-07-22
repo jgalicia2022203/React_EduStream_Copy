@@ -2,6 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import * as yup from "yup";
+import { login } from "../../services/api";
 
 const schema = yup.object().shape({
   username: yup.string().required("Username is required"),
@@ -17,10 +18,15 @@ const useLoginForm = (onClose) => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-    toast.success("Logged in successfully");
-    onClose();
+  const onSubmit = async (data) => {
+    try {
+      const response = await login(data);
+      localStorage.setItem("token", response.token);
+      toast.success("Logged in successfully");
+      onClose();
+    } catch (error) {
+      toast.error(error.error);
+    }
   };
 
   return {
